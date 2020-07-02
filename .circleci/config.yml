@@ -1,0 +1,39 @@
+# To configure your build/deploy, check out
+# https://circleci.com/docs/2.0/configuration-reference/
+version: 2
+
+only-run-on-branches: &only-run-on-branches
+  branches:
+    ignore:
+      - main
+
+only-run-on-main: &only-run-on-main
+  branches:
+    only:
+      - main
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - build-and-test
+      - deploy:
+          filters:
+            <<: *only-run-on-main
+
+
+jobs:
+  build-and-test:
+    docker:
+      # Available images - https://circleci.com/docs/2.0/circleci-images/
+      - image: cimg/base:2020.01
+    steps:
+      - checkout
+      # Add your build and test setups here
+  deploy:
+    docker:
+      # Available images - https://circleci.com/docs/2.0/circleci-images/
+      - image: cimg/base:2020.01
+    steps:
+      - checkout
+      # Add your deploy steps here
