@@ -1,5 +1,5 @@
 import { generate, generateRules } from "@homebound/truss";
-import { blackPalette, palette, whitePalette } from "./palette";
+import { darkPalette, palette, lightPalette } from "./palette";
 
 // The increment setting means that abbreviations like `mt1` will be `marginTop: 6px`.
 const increment = 6;
@@ -18,12 +18,12 @@ const fonts = {
 // This creates the default/out-of-the-box method/rule set.
 const methods = generateRules({ palette, fonts, numberOfIncrements });
 
-// Create the darkMode/whiteMode
+// Create the darkMode/lightMode
 methods["modes"] = [
-  makeRule("darkMode", Object.fromEntries(Object.entries(blackPalette).map(([color, value]) => {
+  makeRule("darkMode", Object.fromEntries(Object.entries(darkPalette).map(([color, value]) => {
     return [`--${color}`, value];
   }))),
-  makeRule("whiteMode", Object.fromEntries(Object.entries(whitePalette).map(([color, value]) => {
+  makeRule("lightMode", Object.fromEntries(Object.entries(lightPalette).map(([color, value]) => {
     return [`--${color}`, value];
   })))
 ];

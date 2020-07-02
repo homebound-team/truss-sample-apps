@@ -365,7 +365,7 @@ class CssBuilder<T extends Properties1> {
 
   // modes
   get darkMode() { return this.add("--Primary" as any, "black").add("--Secondary" as any, "white").add("--Third" as any, "blue"); }
-  get whiteMode() { return this.add("--Primary" as any, "white").add("--Secondary" as any, "black").add("--Third" as any, "blue"); }
+  get lightMode() { return this.add("--Primary" as any, "white").add("--Secondary" as any, "black").add("--Third" as any, "blue"); }
   
   get $(): T { return maybeImportant(sortObject(this.rules), this._important); }
 

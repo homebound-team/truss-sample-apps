@@ -1,13 +1,13 @@
 const colors = ["Primary", "Secondary", "Third"] as const;
 type Colors = typeof colors[number];
 
-export const whitePalette: Record<Colors, string> = {
+export const lightPalette: Record<Colors, string> = {
   Primary: "white",
   Secondary: "black",
   Third: "blue",
 };
 
-export const blackPalette: Record<Colors, string> = {
+export const darkPalette: Record<Colors, string> = {
   Primary: "black",
   Secondary: "white",
   Third: "blue",
